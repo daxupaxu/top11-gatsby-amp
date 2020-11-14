@@ -1,12 +1,32 @@
 import React from 'react'
 
+import { graphql, useStaticQuery } from 'gatsby'
+import styled from 'styled-components';
+
+const Main = styled.footer`
+    position: absolute;
+    justify-content: center;
+    display: flex;
+    bottom: 0px;
+    width: 100%;
+`
+
 const Footer = () => {
+    const data = useStaticQuery(graphql`
+     query {
+         site {
+             siteMetadata {
+                 author
+             }
+         }
+     }
+    `)
     return (   
-        <footer>
+        <Main>
             <p>
-                Created by Devzone LTD © 2020
+                Created by {data.site.siteMetadata.author} © 2020
             </p>
-        </footer>
+        </Main>
     )
 }
 

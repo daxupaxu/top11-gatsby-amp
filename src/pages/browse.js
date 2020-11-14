@@ -2,12 +2,13 @@ import React from 'react'
 
 import Layout from '../components/layout'
 
-const Gallery = () => {
+
+const Browse = () => {
     return (
         <Layout>
-            <h1>Gallery will be added later.</h1>
+            <h1>Browse Page</h1>
         </Layout>
     )
 }
 
-export default Gallery
+export default Browse

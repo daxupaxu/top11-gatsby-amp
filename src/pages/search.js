@@ -1,15 +1,14 @@
 import React from 'react'
 
-import { graphql } from 'gatsby';
-
 import Layout from '../components/layout'
 
-const About = () => {
+const Search = () => {
     return (
         <Layout>
-            <h1>About us Page</h1>
+            search page later
+            <input type="search"></input>
         </Layout>
     )
 }
 
-export default About
+export default Search

@@ -1,18 +1,61 @@
 import React from 'react'
 
-import { Link } from 'gatsby';
+import { Link, graphql, useStaticQuery } from 'gatsby';
 
+import styled  from 'styled-components';
+
+const Main = styled.div`
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    a {
+        text-decoration: none;
+        color: #000000;
+    }
+    a:hover {
+            cursor: pointer;
+        }
+    h1 {
+        padding: 0 4rem;
+        border: 1px solid #123123;
+        border-radius: 5rem;
+    }
+`
+const List = styled.ul`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 40%;
+    list-style-type: none;
+
+    :last-child{
+        padding-right: 2rem;
+    }
+`
+const ListItem = styled.li`
+    text-decoration: none;
+`
 const Header = () => {
+    const data = useStaticQuery(graphql`
+     query {
+         site {
+             siteMetadata {
+                title
+             }
+         }
+     }
+    `)
     return (
-        <header>
-            <h1>Top 11</h1>
-            <ul>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/about">About</Link></li>
-                <li><Link to="/contact">Contact</Link></li>
-                <li><Link to="/gallery">Gallery</Link></li>
-            </ul>
-        </header>
+        <Main>
+            <Link to='/'><h1>{data.site.siteMetadata.title}</h1></Link>
+            <List>
+                <ListItem><Link to="/">Top</Link></ListItem>
+                <ListItem><Link to="/browse">Browse</Link></ListItem>
+                <ListItem><Link to="/random">Random</Link></ListItem>
+                <ListItem><Link to="/addTop">Add Top 11</Link></ListItem>
+                <ListItem><Link to="/search">Search</Link></ListItem>
+            </List>
+        </Main>
     )
 }
 
