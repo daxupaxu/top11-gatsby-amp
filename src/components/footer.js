@@ -9,6 +9,9 @@ const Main = styled.footer`
     display: flex;
     bottom: 0px;
     width: 100%;
+    background-color: #23262b;
+    color: #FFFFFF;
+    font-family: 'Dancing Script', cursive;
 `
 
 const Footer = () => {

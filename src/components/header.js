@@ -8,17 +8,18 @@ const Main = styled.div`
     display: flex;
     width: 100%;
     justify-content: space-between;
+    background-color: #23262b;
+    font-family: 'Dancing Script', cursive;
+
     a {
         text-decoration: none;
-        color: #000000;
+        color: #FFFFFF;
     }
     a:hover {
             cursor: pointer;
         }
     h1 {
         padding: 0 4rem;
-        border: 1px solid #123123;
-        border-radius: 5rem;
     }
 `
 const List = styled.ul`
