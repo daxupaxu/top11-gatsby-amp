@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { graphql } from 'gatsby';
+import { renderRichText } from 'gatsby-source-contentful/rich-text'
 
 import Layout from '../components/layout';
 
@@ -25,7 +26,7 @@ const SingleTopPage = (props) => {
         <Layout>
             <h1>{title}</h1>
             <p>{dateAdded}</p>
-            {description.raw}
+            {renderRichText(description)}
         </Layout>
     )
 }

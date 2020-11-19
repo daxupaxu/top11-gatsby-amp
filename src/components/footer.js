@@ -7,6 +7,7 @@ const Main = styled.footer`
     position: absolute;
     justify-content: center;
     display: flex;
+    position: fixed;
     bottom: 0px;
     width: 100%;
     background-color: #23262b;
