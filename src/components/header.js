@@ -14,12 +14,11 @@ const Main = styled.div`
     a {
         text-decoration: none;
         color: #FFFFFF;
-        :hover {
-            background-color: #89888a;
-        }
+        
     }
     a:hover {
             cursor: pointer;
+            color: gray;
         }
     h1 {
         padding: 0 4rem;
