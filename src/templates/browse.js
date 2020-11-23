@@ -2,6 +2,7 @@ import React from 'react';
 
 import { graphql } from 'gatsby';
 import { renderRichText } from 'gatsby-source-contentful/rich-text'
+import styled from 'styled-components';
 
 import Layout from '../components/layout';
 
@@ -16,6 +17,24 @@ query($slug: String!) {
     }
 }
 `
+const Main = styled.section`
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+`
+
+const Header = styled.h1`
+    align-self: center;
+`
+const Body = styled.div`
+    width: 70%;
+    align-self: center;
+    justify-content: center;
+`
+const Paragraph = styled.p`
+    align-self: flex-end;
+    padding: 2rem;
+`
 
 const SingleTopPage = (props) => {
 
@@ -24,9 +43,14 @@ const SingleTopPage = (props) => {
     
     return (
         <Layout>
-            <h1>{title}</h1>
-            <p>{dateAdded}</p>
-            {renderRichText(description)}
+            <Main>
+                <Header>{title}</Header>
+                <Body>
+                    {renderRichText(description)}
+                </Body>
+                <Paragraph>{dateAdded}</Paragraph>
+            </Main>
+
         </Layout>
     )
 }
