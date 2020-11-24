@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^14.1.2",
+    "@types/styled-components": "^5.1.4",
     "babel-plugin-styled-components": "^1.11.1",
     "gatsby": "^2.25.3",
     "gatsby-plugin-styled-components": "^3.4.0",
@@ -25,6 +26,8 @@
     "styled-components": "^5.2.1"
   },
   "devDependencies": {
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
     "env-cmd": "^10.1.0",
     "prettier": "2.1.2"
   },

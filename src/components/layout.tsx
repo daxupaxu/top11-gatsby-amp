@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 
 import Header from './header'
 import Footer from './footer'
 
 import { createGlobalStyle } from 'styled-components';
+
+interface Props {
+    children: ReactNode
+}
 
 const Main = createGlobalStyle`
     body {
@@ -12,12 +16,12 @@ const Main = createGlobalStyle`
     }
 `
 
-const Layout = (props) => {
+const Layout = ({ children }: Props) => {
     return (
         <React.Fragment>
             <Main />
                 <Header />
-                    {props.children}
+                    {children}
                 <Footer />
         </React.Fragment>
     )

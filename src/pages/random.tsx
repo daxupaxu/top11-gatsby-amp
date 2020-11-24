@@ -7,6 +7,24 @@ import styled from 'styled-components';
 
 import Layout from '../components/layout'
 
+interface GraphQLData {
+    allContentfulSingleTop: {
+        edges: {
+            node: {
+                title: String,
+                dateAdded: Date,
+                description: {
+                    raw: String
+                }
+            }
+        }
+    }
+}
+
+interface Props {
+    data: GraphQLData
+}
+
 export const data = graphql`
     query {
         allContentfulSingleTop{
@@ -74,10 +92,10 @@ const options = {
     [BLOCKS.LIST_ITEM]: (node, children) => <ListItem>{children}</ListItem>
   },
 } 
-const RandomPage = (props) => {
+const RandomPage = (props: Props) => {
 
-    const items = props.data.allContentfulSingleTop.edges;
-    let randomItem = items[Math.floor(Math.random() * items.length)];
+    const items: [] = props.data.allContentfulSingleTop.edges;
+    let randomItem: [typeof items] = items[Math.floor(Math.random() * items.length)];
     const { title, dateAdded, description } = randomItem.node;
 
     return (

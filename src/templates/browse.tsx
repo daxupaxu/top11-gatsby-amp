@@ -1,13 +1,26 @@
 import React from 'react';
 
 import { graphql } from 'gatsby';
-import { renderRichText } from 'gatsby-source-contentful/rich-text'
+import { ContentfulRichTextGatsbyReference, renderRichText } from 'gatsby-source-contentful/rich-text'
 import styled from 'styled-components';
 
 import Layout from '../components/layout';
 
+interface GraphQLData {
+    contentfulSingleTop: {
+        title: String,
+        dateAdded: Date,
+        description:  RenderRichTextData<ContentfulRichTextGatsbyReference>,
+        raw: String
+    }
+}
+
+interface Props {
+    data: GraphQLData
+}
+
 export const query = graphql`
-query($slug: String!) {
+query singleTopQuery($slug: String!) {
     contentfulSingleTop( slug: {eq: $slug }) {
         title
         dateAdded(formatString: "MMMM Do YYYY")
@@ -36,7 +49,7 @@ const Paragraph = styled.p`
     padding: 2rem;
 `
 
-const SingleTopPage = (props) => {
+const SingleTopPage = (props: Props) => {
 
     const data = props.data.contentfulSingleTop
     const { title, dateAdded, description } = data 

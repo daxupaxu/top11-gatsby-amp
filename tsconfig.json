@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+      "module": "ESNext",
+      "target": "ESNext",
+      "jsx": "preserve",
+      "lib": ["dom"],
+      "moduleResolution": "node",
+      "allowJs": true,
+      "outDir": "./build",
+      "strict": true,
+      "noEmit": true,
+      "isolatedModules": true,
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "removeComments": false,
+      "preserveConstEnums": true
+    },
+    "include": ["./src/**/*"]
+  }
+   
