@@ -1,28 +1,17 @@
 import React from 'react';
-
 import { graphql } from 'gatsby';
-import { renderRichText } from 'gatsby-source-contentful/rich-text'
+import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import styled from 'styled-components';
 
 import Layout from '../components/layout';
+import { SingleTopQuery } from '../../types/graphql-types';
 
-export const query = graphql`
-query($slug: String!) {
-    contentfulSingleTop( slug: {eq: $slug }) {
-        title
-        dateAdded(formatString: "MMMM Do YYYY")
-        description {
-            raw 
-        }
-    }
-}
-`
+
 const Main = styled.section`
     display: flex;
     flex-direction: column;
     padding: 1.5rem;
 `
-
 const Header = styled.h1`
     align-self: center;
 `
@@ -35,11 +24,25 @@ const Paragraph = styled.p`
     align-self: flex-end;
     padding: 2rem;
 `
+interface Props {
+    data: SingleTopQuery
+}
 
-const SingleTopPage = (props) => {
+export const data = graphql`
+query singleTop($slug: String!) {
+    contentfulSingleTop( slug: {eq: $slug }) {
+        title
+        dateAdded(formatString: "MMMM Do YYYY")
+        description {
+            raw 
+        }
+    }
+}
+`
 
-    const data = props.data.contentfulSingleTop
-    const { title, dateAdded, description } = data 
+const SingleTopPage = (props: Props) => {
+
+    const { title, dateAdded, description }: any = props.data.contentfulSingleTop
     
     return (
         <Layout>

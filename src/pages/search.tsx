@@ -1,13 +1,16 @@
 import React from 'react'
 
+
 import Layout from '../components/layout'
 
-const ErrorPage = () => {
+
+const Search = () => {
     return (
         <Layout>
-         <h1>Sorry, the page you're looking for is not found</h1>
+            search page later
+            <input type="search"></input>
         </Layout>
     )
 }
 
-export default ErrorPage
+export default Search

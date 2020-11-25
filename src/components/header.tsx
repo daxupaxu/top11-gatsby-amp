@@ -1,8 +1,7 @@
 import React from 'react'
-
 import { Link, graphql, useStaticQuery } from 'gatsby';
-
 import styled  from 'styled-components';
+
 
 const Main = styled.div`
     display: flex;
@@ -36,8 +35,10 @@ const List = styled.ul`
     }
 `
 const ListItem = styled.li`
+
     text-decoration: none;
 `
+
 const Header = () => {
     const data = useStaticQuery(graphql`
      query {

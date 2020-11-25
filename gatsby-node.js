@@ -2,7 +2,7 @@ const path = require('path')
 
 module.exports.createPages = async ({ graphql, actions }) => {
     const { createPage } = actions
-    const topsTemplate = path.resolve('./src/templates/browse.js');
+    const topsTemplate = path.resolve('./src/templates/browse.tsx');
     const res = await graphql (`
         query{
             allContentfulSingleTop{

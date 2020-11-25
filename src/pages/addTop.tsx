@@ -1,14 +1,15 @@
 import React from 'react'
 
+
 import Layout from '../components/layout'
 
-const Search = () => {
+
+const AddTop = () => {
     return (
         <Layout>
-            search page later
-            <input type="search"></input>
+            <h1>AddTop will be added later.</h1>
         </Layout>
     )
 }
 
-export default Search
+export default AddTop
