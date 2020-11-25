@@ -1,10 +1,10 @@
 import React from 'react';
-
-import { graphql, useStaticQuery, Link } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import styled from 'styled-components';
 
-
 import Layout from '../components/layout';
+import { BrowsePageQuery } from '../../types/graphql-types'
+
 
 const Item = styled.div`
     :hover {
@@ -28,25 +28,32 @@ const Item = styled.div`
     }
 `
 
-const Browse = () => {
-    const data = useStaticQuery(graphql `
-    query {
-        allContentfulSingleTop(
-            sort: {
-                fields: dateAdded,
-                order: DESC
-            }
-        ) {
-            edges { 
-                node { 
-                    title
-                    dateAdded(fromNow: true)
-                    slug
-                }
+export const data = graphql `
+query BrowsePage {
+    allContentfulSingleTop(
+        sort: {
+            fields: dateAdded,
+            order: DESC
+        }
+    ) {
+        edges { 
+            node { 
+                title
+                dateAdded(fromNow: true)
+                slug
             }
         }
     }
-`)
+}
+`
+interface Props {
+    data: BrowsePageQuery
+}
+
+
+const Browse = (props: Props) => {
+    const { data } = props;
+
     return (
         <Layout>
            {data.allContentfulSingleTop.edges.map((edge) => {

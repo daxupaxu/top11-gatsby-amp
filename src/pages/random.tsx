@@ -1,45 +1,13 @@
 import React from 'react'
-
 import { graphql} from 'gatsby';
 import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import { BLOCKS, MARKS } from "@contentful/rich-text-types"
 import styled from 'styled-components';
 
+
 import Layout from '../components/layout'
+import { RandomPageQuery } from '../../types/graphql-types'
 
-interface GraphQLData {
-    allContentfulSingleTop: {
-        edges: {
-            node: {
-                title: String,
-                dateAdded: Date,
-                description: {
-                    raw: String
-                }
-            }
-        }
-    }
-}
-
-interface Props {
-    data: GraphQLData
-}
-
-export const data = graphql`
-    query {
-        allContentfulSingleTop{
-            edges { 
-                node { 
-                    title
-                    dateAdded(fromNow: true)
-                    description {
-                        raw
-                    }
-                }
-            }
-        }
-    }
-`
 
 const Header = styled.header`
     display: flex;
@@ -84,18 +52,36 @@ const H1 = styled.h1`
 
 const options = {
   renderMark: {
-    [MARKS.BOLD]: text => <bold>{text}</bold>,
+    [MARKS.BOLD]: (text: any) => <p>{text}</p>,
   },
   renderNode: {
-    [BLOCKS.PARAGRAPH]: (node, children) => <Paragraph>{children}</Paragraph>,
-    [BLOCKS.OL_LIST]: (node, children) => <List>{children}</List>,
-    [BLOCKS.LIST_ITEM]: (node, children) => <ListItem>{children}</ListItem>
+    [BLOCKS.PARAGRAPH]: (children: React.ReactNode) => <Paragraph>{children}</Paragraph>,
+    [BLOCKS.OL_LIST]: (children: React.ReactNode) => <List>{children}</List>,
+    [BLOCKS.LIST_ITEM]: (children: React.ReactNode) => <ListItem>{children}</ListItem>
   },
 } 
-const RandomPage = (props: Props) => {
 
-    const items: [] = props.data.allContentfulSingleTop.edges;
-    let randomItem: [typeof items] = items[Math.floor(Math.random() * items.length)];
+export const data = graphql`
+    query RandomPage {
+        allContentfulSingleTop{
+            edges { 
+                node { 
+                    title
+                    dateAdded(fromNow: true)
+                    description {
+                        raw
+                    }
+                }
+            }
+        }
+    }
+`
+interface Props {
+    data: RandomPageQuery
+}
+const RandomPage = (props: Props) => {
+    const items = props.data.allContentfulSingleTop.edges;
+    let randomItem = items[Math.floor(Math.random() * items.length)];
     const { title, dateAdded, description } = randomItem.node;
 
     return (
@@ -106,7 +92,7 @@ const RandomPage = (props: Props) => {
                 <span>{dateAdded}</span>
             </Header>
             <Main>
-                {renderRichText(description, options)}
+                {renderRichText(description as any, options)}
             </Main>
         </Layout>
     )

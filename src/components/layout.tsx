@@ -1,9 +1,10 @@
 import React, { ReactNode } from 'react'
+import { createGlobalStyle } from 'styled-components';
+
 
 import Header from './header'
 import Footer from './footer'
 
-import { createGlobalStyle } from 'styled-components';
 
 interface Props {
     children: ReactNode

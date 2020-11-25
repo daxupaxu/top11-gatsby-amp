@@ -1,8 +1,7 @@
 import React from 'react'
-
 import { Link, graphql, useStaticQuery } from 'gatsby';
-
 import styled  from 'styled-components';
+
 
 const Main = styled.div`
     display: flex;
