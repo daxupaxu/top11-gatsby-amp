@@ -50,7 +50,6 @@ interface Props {
     data: BrowsePageQuery
 }
 
-
 const Browse = (props: Props) => {
     const { data } = props;
 

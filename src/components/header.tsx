@@ -35,8 +35,10 @@ const List = styled.ul`
     }
 `
 const ListItem = styled.li`
+
     text-decoration: none;
 `
+
 const Header = () => {
     const data = useStaticQuery(graphql`
      query {

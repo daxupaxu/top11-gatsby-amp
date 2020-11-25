@@ -49,7 +49,6 @@ const H1 = styled.h1`
     text-align: center;
 `
 
-
 const options = {
   renderMark: {
     [MARKS.BOLD]: (text: any) => <p>{text}</p>,
@@ -79,6 +78,7 @@ export const data = graphql`
 interface Props {
     data: RandomPageQuery
 }
+
 const RandomPage = (props: Props) => {
     const items = props.data.allContentfulSingleTop.edges;
     let randomItem = items[Math.floor(Math.random() * items.length)];

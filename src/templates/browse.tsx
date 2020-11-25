@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import {  renderRichText } from 'gatsby-source-contentful/rich-text';
+import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import styled from 'styled-components';
 
 import Layout from '../components/layout';
@@ -12,7 +12,6 @@ const Main = styled.section`
     flex-direction: column;
     padding: 1.5rem;
 `
-
 const Header = styled.h1`
     align-self: center;
 `
