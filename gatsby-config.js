@@ -32,5 +32,20 @@ module.exports = {
           alwaysCheck: false,
         }
       },
+      {
+        resolve: `gatsby-plugin-amp`,
+        options: {
+          analytics: {
+            type: 'gtag',
+            dataCredentials: 'include',
+          },
+          canonicalBaseUrl: 'http://www.example.com/',
+          components: ['amp-form'],
+          excludedPaths: ['/404*', '/'],
+          pathIdentifier: '/amp/',
+          relAmpHtmlPattern: '{{canonicalBaseUrl}}{{pathname}}{{pathIdentifier}}',
+          useAmpClientIdApi: true,
+        },
+      },
   ]
 }
