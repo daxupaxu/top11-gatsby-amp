@@ -1,10 +1,11 @@
 import React from 'react'
+import Layout from '../components/layout'
 
 const WhyPage = () => {
     return (
-        <div>
-            Content for why page
-        </div>
+        <Layout>
+            <h1>Content for why page</h1>
+        </Layout>
     )
 }
 

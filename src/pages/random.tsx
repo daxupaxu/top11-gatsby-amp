@@ -29,22 +29,6 @@ const Main = styled.section`
     align-items: center;
     flex-direction: column;
 `
-const Paragraph = styled.p`
-    width: 60%;
-    text-align: center;
-`
-const List = styled.ol`
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-`
-const ListItem = styled.li`
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-`
 const H1 = styled.h1`
     text-align: center;
 `

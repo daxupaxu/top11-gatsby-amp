@@ -57,6 +57,7 @@ const Header = () => {
                 <ListItem><Link to="/browse">Browse</Link></ListItem>
                 <ListItem><Link to="/random">Random</Link></ListItem>
                 <ListItem><Link to="/addTop">Add Top 11</Link></ListItem>
+                <ListItem><Link to="/why">Why</Link></ListItem>
                 <ListItem><Link to="/search">Search</Link></ListItem>
             </List>
         </Main>
