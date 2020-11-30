@@ -2558,14 +2558,6 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___codegen'
   | 'pluginCreator___pluginOptions___codegenDelay'
   | 'pluginCreator___pluginOptions___alwaysCheck'
-  | 'pluginCreator___pluginOptions___analytics___type'
-  | 'pluginCreator___pluginOptions___analytics___dataCredentials'
-  | 'pluginCreator___pluginOptions___canonicalBaseUrl'
-  | 'pluginCreator___pluginOptions___components'
-  | 'pluginCreator___pluginOptions___excludedPaths'
-  | 'pluginCreator___pluginOptions___pathIdentifier'
-  | 'pluginCreator___pluginOptions___relAmpHtmlPattern'
-  | 'pluginCreator___pluginOptions___useAmpClientIdApi'
   | 'pluginCreator___pluginOptions___path'
   | 'pluginCreator___pluginOptions___pathCheck'
   | 'pluginCreator___pluginOptions___allExtensions'
@@ -2773,14 +2765,6 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___codegen'
   | 'pluginOptions___codegenDelay'
   | 'pluginOptions___alwaysCheck'
-  | 'pluginOptions___analytics___type'
-  | 'pluginOptions___analytics___dataCredentials'
-  | 'pluginOptions___canonicalBaseUrl'
-  | 'pluginOptions___components'
-  | 'pluginOptions___excludedPaths'
-  | 'pluginOptions___pathIdentifier'
-  | 'pluginOptions___relAmpHtmlPattern'
-  | 'pluginOptions___useAmpClientIdApi'
   | 'pluginOptions___path'
   | 'pluginOptions___pathCheck'
   | 'pluginOptions___allExtensions'
@@ -2914,28 +2898,11 @@ export type SitePluginPluginOptions = {
   codegen?: Maybe<Scalars['Boolean']>;
   codegenDelay?: Maybe<Scalars['Int']>;
   alwaysCheck?: Maybe<Scalars['Boolean']>;
-  analytics?: Maybe<SitePluginPluginOptionsAnalytics>;
-  canonicalBaseUrl?: Maybe<Scalars['String']>;
-  components?: Maybe<Array<Maybe<Scalars['String']>>>;
-  excludedPaths?: Maybe<Array<Maybe<Scalars['String']>>>;
-  pathIdentifier?: Maybe<Scalars['String']>;
-  relAmpHtmlPattern?: Maybe<Scalars['String']>;
-  useAmpClientIdApi?: Maybe<Scalars['Boolean']>;
   path?: Maybe<Scalars['String']>;
   pathCheck?: Maybe<Scalars['Boolean']>;
   allExtensions?: Maybe<Scalars['Boolean']>;
   isTSX?: Maybe<Scalars['Boolean']>;
   jsxPragma?: Maybe<Scalars['String']>;
-};
-
-export type SitePluginPluginOptionsAnalytics = {
-  type?: Maybe<Scalars['String']>;
-  dataCredentials?: Maybe<Scalars['String']>;
-};
-
-export type SitePluginPluginOptionsAnalyticsFilterInput = {
-  type?: Maybe<StringQueryOperatorInput>;
-  dataCredentials?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePluginPluginOptionsFilterInput = {
@@ -2957,13 +2924,6 @@ export type SitePluginPluginOptionsFilterInput = {
   codegen?: Maybe<BooleanQueryOperatorInput>;
   codegenDelay?: Maybe<IntQueryOperatorInput>;
   alwaysCheck?: Maybe<BooleanQueryOperatorInput>;
-  analytics?: Maybe<SitePluginPluginOptionsAnalyticsFilterInput>;
-  canonicalBaseUrl?: Maybe<StringQueryOperatorInput>;
-  components?: Maybe<StringQueryOperatorInput>;
-  excludedPaths?: Maybe<StringQueryOperatorInput>;
-  pathIdentifier?: Maybe<StringQueryOperatorInput>;
-  relAmpHtmlPattern?: Maybe<StringQueryOperatorInput>;
-  useAmpClientIdApi?: Maybe<BooleanQueryOperatorInput>;
   path?: Maybe<StringQueryOperatorInput>;
   pathCheck?: Maybe<BooleanQueryOperatorInput>;
   allExtensions?: Maybe<BooleanQueryOperatorInput>;
