@@ -49,17 +49,6 @@ const H1 = styled.h1`
     text-align: center;
 `
 
-const options = {
-  renderMark: {
-    [MARKS.BOLD]: (text: any) => <p>{text}</p>,
-  },
-  renderNode: {
-    [BLOCKS.PARAGRAPH]: (children: React.ReactNode) => <Paragraph>{children}</Paragraph>,
-    [BLOCKS.OL_LIST]: (children: React.ReactNode) => <List>{children}</List>,
-    [BLOCKS.LIST_ITEM]: (children: React.ReactNode) => <ListItem>{children}</ListItem>
-  },
-} 
-
 export const data = graphql`
     query RandomPage {
         allContentfulSingleTop{
@@ -79,8 +68,8 @@ interface Props {
     data: RandomPageQuery
 }
 
-const RandomPage = (props: Props) => {
-    const items = props.data.allContentfulSingleTop.edges;
+const RandomPage = ({data}: Props) => {
+    const items = data.allContentfulSingleTop.edges;
     let randomItem = items[Math.floor(Math.random() * items.length)];
     const { title, dateAdded, description } = randomItem.node;
 
@@ -92,7 +81,7 @@ const RandomPage = (props: Props) => {
                 <span>{dateAdded}</span>
             </Header>
             <Main>
-                {renderRichText(description as any, options)}
+                {renderRichText(description as any)}
             </Main>
         </Layout>
     )

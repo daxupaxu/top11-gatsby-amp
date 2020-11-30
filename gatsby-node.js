@@ -16,20 +16,13 @@ module.exports.createPages = async ({ graphql, actions }) => {
         }
     `) 
 
-    res.data.allContentfulSingleTop.edges.forEach( (edge) => {
+    res.data.allContentfulSingleTop.edges.forEach((edge) => {
         createPage({
             component: topsTemplate,
             path: `/browse/${edge.node.slug}`,
             context: {
-                slug: edge.node.slug
-            }
-        })
-        createPage({
-            component: ampTemplate,
-            path: `browse/${edge.node.slug}/amp`,
-            context: {
-              slug: edge.node.slug,
+                slug: edge.node.slug,
             },
-          })
+        })
     })
 }

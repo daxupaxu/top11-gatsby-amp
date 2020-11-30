@@ -4,7 +4,7 @@ import { renderRichText } from 'gatsby-source-contentful/rich-text';
 import styled from 'styled-components';
 
 import Layout from '../components/layout';
-import { SingleTopQuery } from '../../types/graphql-types';
+import { SingleTopAmpQuery } from '../../types/graphql-types';
 
 
 const Main = styled.section`
@@ -25,7 +25,7 @@ const Paragraph = styled.p`
     padding: 2rem;
 `
 interface Props {
-    data: SingleTopQuery
+    data: SingleTopAmpQuery
 }
 
 export const data = graphql`
@@ -40,10 +40,10 @@ query singleTopAmp($slug: String!) {
 }
 `
 
-const SingleTopPage = (props: Props) => {
+const SingleTopPage = ({data}: Props) => {
 
-    const { title, dateAdded, description }: any = props.data.contentfulSingleTop
-    
+    const { title, dateAdded, description }: any = data.contentfulSingleTop
+
     return (
         <Layout>
             <Main>
