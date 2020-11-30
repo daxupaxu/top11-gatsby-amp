@@ -1,8 +1,7 @@
-import React from 'react'
-
+import React from 'react';
+import '../images/freelunch.jpg';
 
 import Layout from '../components/layout'
-
 
 const IndexPage = () => {
   return (

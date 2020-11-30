@@ -57,7 +57,7 @@ const Browse = (props: Props) => {
         <Layout>
            {data.allContentfulSingleTop.edges.map((edge) => {
                return (
-                   <Item>
+                   <Item key={edge.node.slug}>
                         <Link to={`/browse/${edge.node.slug}`}>
                             <h2>{edge.node.title}</h2>
                             <p>{edge.node.dateAdded}</p>

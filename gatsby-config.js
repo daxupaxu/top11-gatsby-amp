@@ -32,5 +32,6 @@ module.exports = {
           alwaysCheck: false,
         }
       },
+      'gatsby-plugin-amp',
   ]
 }

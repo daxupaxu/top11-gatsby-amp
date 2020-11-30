@@ -3,6 +3,7 @@ const path = require('path')
 module.exports.createPages = async ({ graphql, actions }) => {
     const { createPage } = actions
     const topsTemplate = path.resolve('./src/templates/browse.tsx');
+    const ampTemplate = path.resolve('./src/templates/browse.amp.tsx');
     const res = await graphql (`
         query{
             allContentfulSingleTop{
@@ -15,13 +16,13 @@ module.exports.createPages = async ({ graphql, actions }) => {
         }
     `) 
 
-    res.data.allContentfulSingleTop.edges.forEach( (edge) => {
+    res.data.allContentfulSingleTop.edges.forEach((edge) => {
         createPage({
             component: topsTemplate,
             path: `/browse/${edge.node.slug}`,
             context: {
-                slug: edge.node.slug
-            }
+                slug: edge.node.slug,
+            },
         })
     })
 }

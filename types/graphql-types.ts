@@ -3005,6 +3005,16 @@ export type RandomPageQuery = { allContentfulSingleTop: { edges: Array<{ node: (
         & { description?: Maybe<Pick<ContentfulSingleTopDescription, 'raw'>> }
       ) }> } };
 
+export type SingleTopAmpQueryVariables = Exact<{
+  slug: Scalars['String'];
+}>;
+
+
+export type SingleTopAmpQuery = { contentfulSingleTop?: Maybe<(
+    Pick<ContentfulSingleTop, 'title' | 'dateAdded'>
+    & { description?: Maybe<Pick<ContentfulSingleTopDescription, 'raw'>> }
+  )> };
+
 export type SingleTopQueryVariables = Exact<{
   slug: Scalars['String'];
 }>;
